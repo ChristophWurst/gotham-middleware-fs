@@ -10,5 +10,6 @@ gotham = "0.2"
 gotham_derive = "0.2"
 
 [dev-dependencies]
+bytes = "0.4"
 hyper = "*"
 mime = "*"
