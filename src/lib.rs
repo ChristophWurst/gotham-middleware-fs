@@ -1,8 +1,12 @@
+extern crate bytes;
 extern crate futures;
 extern crate futures_fs;
 extern crate gotham;
 #[macro_use]
 extern crate gotham_derive;
+extern crate hyper;
+
+pub mod body;
 
 use std::io;
 use std::panic::AssertUnwindSafe;

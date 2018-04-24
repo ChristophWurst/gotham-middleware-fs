@@ -4,12 +4,12 @@ version = "0.1.0"
 authors = ["Christoph Wurst <christoph@winzerhof-wurst.at>"]
 
 [dependencies]
+bytes = "0.4"
 futures = "0.1"
 futures-fs = "0.0.3"
 gotham = "0.2"
 gotham_derive = "0.2"
+hyper = "*"
 
 [dev-dependencies]
-bytes = "0.4"
-hyper = "*"
 mime = "*"
