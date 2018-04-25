@@ -7,6 +7,7 @@ extern crate gotham_derive;
 extern crate hyper;
 
 pub mod body;
+pub mod response;
 
 use std::io;
 use std::panic::AssertUnwindSafe;
