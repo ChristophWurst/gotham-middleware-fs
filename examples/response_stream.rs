@@ -21,7 +21,7 @@ use hyper::StatusCode;
 
 pub fn stream_response(state: State) -> Box<HandlerFuture> {
     let pool = FsPoolMiddlewareData::borrow_from(&state).pool();
-    let input = pool.read("/home/christoph/in.mp4");
+    let input = pool.read("Cargo.toml");
     let f = input.into_response().then(|res| match res {
         Ok(response) => ok((state, response)),
         Err(err) => {
