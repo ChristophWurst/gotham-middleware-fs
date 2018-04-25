@@ -5,6 +5,7 @@ extern crate gotham;
 #[macro_use]
 extern crate gotham_derive;
 extern crate hyper;
+extern crate tokio;
 
 pub mod body;
 pub mod response;
