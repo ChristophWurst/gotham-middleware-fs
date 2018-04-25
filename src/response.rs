@@ -2,7 +2,7 @@ use std::io;
 
 use bytes::Bytes;
 use futures::{Future, Sink, Stream};
-use hyper::{Body, Chunk, Error, Response};
+use hyper::{header, Body, Chunk, Error, Response};
 
 pub trait WriteResponseStream {
     fn into_response(self) -> Box<Future<Item = Response<Body>, Error = Error>>;
@@ -14,7 +14,8 @@ where
 {
     fn into_response(self) -> Box<Future<Item = Response<Body>, Error = Error>> {
         let (sender, body) = Body::pair();
-        let res = Response::new().with_body(body);
+        let mut res = Response::new().with_body(body);
+        res.headers_mut().remove::<header::ContentLength>();
 
         let sender = sender.sink_map_err(|e| Error::from(io::Error::new(io::ErrorKind::Other, e)));
         let f = self.map(|bytes| {
